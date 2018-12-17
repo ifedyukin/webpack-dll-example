@@ -1,0 +1,45 @@
+{
+  "name": "webpack-dll-plugin-example",
+  "version": "1.0.0",
+  "description": "WebPack DLL Plugin usage example",
+  "scripts": {
+    "build:dll-references": "rimraf ./with-dll/build && webpack --config ./with-dll/webpack.config.js",
+    "build:vendors-dll": "rimraf ./with-dll/vendors && webpack --config ./with-dll/webpack-dll.config.js",
+    "build:with-dll": "npm run build:vendors-dll && npm run build:dll-references",
+    "build:without-dll": "rimraf ./without-dll/build && webpack --config ./without-dll/webpack.config.js",
+    "clean": "rimraf ./with-dll/build ./with-dll/vendors && rimraf ./without-dll/build",
+    "build": "npm run build:without-dll && npm run build:with-dll"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifedyukin/webpack-dll-example.git"
+  },
+  "author": "Igor Fedyukin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ifedyukin/webpack-dll-example/issues"
+  },
+  "homepage": "https://github.com/ifedyukin/webpack-dll-example#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
+    "copy-webpack-plugin": "^4.6.0",
+    "rimraf": "^2.6.2",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {
+    "react": "^16.6.3",
+    "react-dom": "^16.6.3",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  }
+}
